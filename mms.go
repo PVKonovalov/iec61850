@@ -102,7 +102,10 @@ func toGoValue(mmsValue *C.MmsValue, mmsType MmsType) (interface{}, error) {
 		}
 		value = bytes
 	case BinaryTime:
-		value = uint64(C.MmsValue_getBinaryTimeAsUtcMs(mmsValue))
+		mmsValueTime := MmsTimeValue{}
+		mmsValueTime.Value = uint64(C.MmsValue_getUtcTimeInMs(mmsValue))
+		mmsValueTime.Quality = byte(C.MmsValue_getUtcTimeQuality(mmsValue))
+		value = mmsValueTime
 	case UTCTime:
 		value = uint32(C.MmsValue_toUnixTimestamp(mmsValue))
 	case DataAccessError:

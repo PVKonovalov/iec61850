@@ -1,7 +1,7 @@
 package test
 
 import (
-	"github.com/wendy512/iec61850"
+	"github.com/PVKonovalov/iec61850"
 	"testing"
 	"time"
 )

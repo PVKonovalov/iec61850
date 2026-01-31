@@ -7,6 +7,11 @@ type MmsValue struct {
 	Value interface{}
 }
 
+type MmsTimeValue struct {
+	Value   uint64
+	Quality byte
+}
+
 // data types
 const (
 	Array MmsType = iota
